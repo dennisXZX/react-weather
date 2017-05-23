@@ -4,7 +4,7 @@ class About extends Component {
 	render() {
 		return (
 			<div>
-				<h1 className="text-center">About</h1>
+				<h1 className="text-center page-title">About</h1>
 				<p>This app is build on React, React-router Express, Foundation, Axios and Webpack.</p>
 				<ol>
 					<li>

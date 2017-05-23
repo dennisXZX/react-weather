@@ -7,6 +7,7 @@ import About from './components/About'
 import Example from './components/Example'
 
 import 'style!css!foundation-sites/dist/foundation.min.css';
+import 'style!css!sass!./styles/app.scss';
 $(document).foundation();
 
 ReactDOM.render(

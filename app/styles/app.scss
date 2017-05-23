@@ -1,0 +1,11 @@
+/* SCSS Variables */
+$space-medium: 1.5rem;
+
+.page-title {
+	margin-top: $space-medium;
+	margin-bottom: $space-medium;
+}
+
+input[type=search] {
+	box-shadow: none;
+}

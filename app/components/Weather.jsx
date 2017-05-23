@@ -13,7 +13,9 @@ class Weather extends Component {
 		// indicates the data is loading
 		this.setState({
 			isLoading: true,
-			errorMessage: undefined
+			errorMessage: undefined,
+			location: undefined,
+			temp: undefined
 	});
 
 		// get the weather data through oponweather API
@@ -32,6 +34,28 @@ class Weather extends Component {
 					errorMessage: errorMessage.message
 				})
 			})
+	}
+
+	componentDidMount() {
+		// get the city from the URL query
+		const location = this.props.location.query.location;
+		
+		if (location && location.length > 0) {
+			this.searchWeather(location);
+			// reset the URL query
+			window.location.hash = "#/";
+		}
+	}
+
+	componentWillReceiveProps(newProps) {
+		// get the city from the URL query
+		const location = newProps.location.query.location;
+		
+		if (location && location.length > 0) {
+			this.searchWeather(location);
+			// reset the URL query
+			window.location.hash = "#/";
+		}		
 	}
 
 	render() {
@@ -58,7 +82,7 @@ class Weather extends Component {
 
 		return (
 			<div>
-				<h1 className="text-center">Get Weather</h1>
+				<h1 className="text-center page-title">Get Weather</h1>
 				<WeatherForm searchWeather={this.searchWeather} />
 				{renderMessage()}
 				{renderError()}
